@@ -1,9 +1,9 @@
 #define _USE_MATH_DEFINES
 #include <iostream>
 #include "Circle.h"
-#include <math.h>
 
-Circle::Circle(float r, std::size_t pC)
+
+Circle::Circle(int r, int pC)
 {
 	radius = r;
 	pointCount = pC;
@@ -14,10 +14,8 @@ float Circle::area()
 	return M_PI * radius * radius;
 }
 
-
-
-//void Circle::draw(sf::RenderTarget& target, sf::RenderStates states) const
-//{
-//	target.draw(m_sprite, states);
-//	//std::cout << " drawing circle " << std::endl;
-//}
+void Circle::draw(sf::RenderWindow& window)
+{
+	sf::CircleShape circle = sf::CircleShape(radius, pointCount);
+	window.draw(circle);
+}

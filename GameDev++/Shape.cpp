@@ -10,9 +10,11 @@ float Shape::area()
 	return 0;
 }
 
-void Shape::draw(sf::RenderTarget& target, sf::RenderStates states) const
+void Shape::draw(sf::RenderWindow& window)
 {
-	target.draw(m_vertices, states);
-	target.draw(m_outlineVertices, states);
-	target.draw(m_sprite, states);
 }
+
+//Vector2 Shape::Vector2fToVector2()
+//{
+//
+//}

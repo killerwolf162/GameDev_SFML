@@ -1,6 +1,7 @@
 #pragma once
 #include "Shape.h"
 
+
 class Rectangle : public Shape
 {
 private: 
@@ -10,7 +11,7 @@ private:
 public:
 	Rectangle(int w, int h);
 	float area();
-	virtual void draw();
+	virtual void draw(sf::RenderWindow& window);
 
 };
 

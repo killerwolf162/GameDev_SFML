@@ -2,14 +2,24 @@
 #include <SFML/Graphics.hpp>
 #include "Shape.h"
 #include "Circle.h"
+#include "Rectangle.h"
+#include "Vector2.h"
 
 int main()
 {
     sf::RenderWindow window(sf::VideoMode(800, 400), "SFML works!");
-    Circle c(200, 30);
+    Circle circle(100, 100);
+    Rectangle rect(200, 100);
 
-    sf::CircleShape circle(100, 100);
-       
+    Vector2 a(10, 10);
+    Vector2 b(-5, 5);
+
+    Vector2 c = Vector2::AddVector2(a, b);
+
+    std::cout << circle.area() << std::endl;
+    std::cout << rect.area() << std::endl;
+    std::cout << a.Vector2Lenght(a) << std::endl;
+
     while (window.isOpen())
     {
         sf::Event event;
@@ -19,8 +29,11 @@ int main()
                 window.close();
         }
 
+        sf::CircleShape c(100, 20);
+
         window.clear();
-        window.draw(c);
+        circle.draw(window);
+        rect.draw(window);
         window.display();
     }
 

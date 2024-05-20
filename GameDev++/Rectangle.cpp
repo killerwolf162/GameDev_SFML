@@ -12,8 +12,9 @@ float Rectangle::area()
 	return width * height;
 }
 
-void Rectangle::draw()
+void Rectangle::draw(sf::RenderWindow& window)
 {
-	std::cout << " drawing rectangle " << std::endl;
+	sf::RectangleShape rect = sf::RectangleShape(sf::Vector2f(width, height));
+	window.draw(rect);
 }
 
