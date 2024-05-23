@@ -5,6 +5,10 @@ Shape::Shape()
 
 }
 
+void Shape::SetPosition(sf::Vector2f position)
+{	
+}
+
 float Shape::area()
 {
 	return 0;

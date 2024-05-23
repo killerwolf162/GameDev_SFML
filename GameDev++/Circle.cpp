@@ -3,10 +3,9 @@
 #include "Circle.h"
 
 
-Circle::Circle(int r, int pC)
+Circle::Circle(int radius)
 {
-	radius = r;
-	pointCount = pC;
+	this-> radius = radius;
 }
 
 float Circle::area()
@@ -16,6 +15,11 @@ float Circle::area()
 
 void Circle::draw(sf::RenderWindow& window)
 {
-	sf::CircleShape circle = sf::CircleShape(radius, pointCount);
-	window.draw(circle);
+	shape.setRadius(radius);
+	window.draw(shape);
+}
+
+void Circle::SetPosition(sf::Vector2f position)
+{
+	shape.setPosition(position);
 }

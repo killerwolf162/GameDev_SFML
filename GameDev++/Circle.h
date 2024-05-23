@@ -6,11 +6,15 @@ class Circle : public Shape
 private:
 	
 	float radius;
-	int pointCount;
+	sf::CircleShape shape;
+	int x;
+	int y;
 
 public:
-	Circle(int radius, int pointCount);
+	Circle(int radius);
 	float area();
 	void draw(sf::RenderWindow& window);
+	void SetPosition(sf::Vector2f position);
+	
 
 };
