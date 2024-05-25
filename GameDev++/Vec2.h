@@ -1,12 +1,15 @@
 #pragma once
 #include "MathUtil.h"
 #include <math.h>
+#include <SFML/Graphics.hpp>
 
 class Vec2
 {
 public:
 
 	Vec2(float x, float y);
+
+	sf::Vector2f ConvertVector2();
 
 	static float DotProduct(Vec2 vector_1, Vec2 vector_2);
 

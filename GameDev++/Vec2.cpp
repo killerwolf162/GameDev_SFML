@@ -7,6 +7,11 @@ Vec2::Vec2(float x, float y)
 	y_pos = y;
 }
 
+sf::Vector2f Vec2::ConvertVector2()
+{
+	return sf::Vector2f(x_pos, y_pos);
+}
+
 float Vec2::DotProduct(Vec2 vector_1, Vec2 vector_2)
 {
 	float dot_x = vector_1.x_pos * vector_2.y_pos;
