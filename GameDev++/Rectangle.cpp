@@ -7,12 +7,10 @@ Rectangle::Rectangle(int w, int h)
 	this->height = h;
 }
 
-
-
-void Rectangle::SetSize(Vec2 size)
+void Rectangle::SetSize(int w, int h)
 {
-	this->size = size;
-	shape.setSize(size.ConvertVector2());
+	width = w;
+	height = h;
 }
 
 float Rectangle::area()
@@ -22,12 +20,14 @@ float Rectangle::area()
 
 void Rectangle::draw(sf::RenderWindow& window)
 {
-	shape.setSize(sf::Vector2f(width, height));
+	Vec2 vector = Vec2(width,height);
+	shape.setSize(vector.ConvertVector2());
 	window.draw(shape);
 }
 
-void Rectangle::SetPosition(Vec2 position)
+void Rectangle::SetPosition(int x_pos, int y_pos)
 {
-	shape.setPosition(position.ConvertVector2());
+	Vec2 vector = Vec2(x_pos, y_pos);
+	shape.setPosition(vector.ConvertVector2());
 }
 

@@ -7,14 +7,10 @@ private:
 	
 	float radius;
 	sf::CircleShape shape;
-	int x;
-	int y;
 
 public:
 	Circle(int radius);
 	float area();
 	void draw(sf::RenderWindow& window);
-	void SetPosition(sf::Vector2f position);
-	
-
+	void SetPosition(int x_pos, int y_pos);
 };

@@ -19,7 +19,8 @@ void Circle::draw(sf::RenderWindow& window)
 	window.draw(shape);
 }
 
-void Circle::SetPosition(sf::Vector2f position)
+void Circle::SetPosition(int x_pos, int y_pos)
 {
-	shape.setPosition(position);
+	Vec2 vector = Vec2(x_pos, y_pos);
+	shape.setPosition(vector.ConvertVector2());
 }

@@ -1,7 +1,7 @@
 #pragma once
 #include "MathUtil.h"
 #include <math.h>
-#include <SFML/Graphics.hpp>
+#include <SFML/System/Vector2.hpp>
 
 class Vec2
 {

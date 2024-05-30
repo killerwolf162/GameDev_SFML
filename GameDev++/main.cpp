@@ -7,9 +7,9 @@
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(1000, 600), "SFML works!");
+	sf::RenderWindow window(sf::VideoMode(1000, 800), "SFML works!");
 	Circle circle(100);
-	Rectangle rect(1, 1);
+	Rectangle rect(150, 150);
 
 	Vec2 a(100, 100);
 	Vec2 b(-5, 5);
@@ -35,13 +35,13 @@ int main()
 		}
 		window.clear();
 
-		rect.SetSize(Vec2(100,100));
+		rect.SetSize(10,10);
 
 		circle.draw(window);
 		rect.draw(window);
 
-		circle.SetPosition(sf::Vector2f(100.00f, 100.00f));
-		rect.SetPosition(Vec2(100.00f, 400.00f));
+		circle.SetPosition(40,600);
+		rect.SetPosition(500,300);
 
 		window.display();
 	}
