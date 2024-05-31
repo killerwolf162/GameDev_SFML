@@ -12,5 +12,5 @@ public:
 	Circle(int radius);
 	float area();
 	void draw(sf::RenderWindow& window);
-	void SetPosition(int x_pos, int y_pos);
+	void SetPosition(int xPos, int yPos);
 };

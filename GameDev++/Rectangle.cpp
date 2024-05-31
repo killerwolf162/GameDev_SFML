@@ -29,9 +29,9 @@ void Rectangle::draw(sf::RenderWindow& window)
 	window.draw(shape);
 }
 
-void Rectangle::SetPosition(int x_pos, int y_pos)
+void Rectangle::SetPosition(int xPos, int yPos)
 {
-	Vec2 vector = Vec2(x_pos, y_pos);
+	Vec2 vector = Vec2(xPos, yPos);
 	shape.setPosition(vector.ConvertVector2());
 }
 

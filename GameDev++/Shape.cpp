@@ -17,8 +17,3 @@ float Shape::area()
 void Shape::draw(sf::RenderWindow& window)
 {
 }
-
-//Vector2 Shape::Vector2fToVector2()
-//{
-//
-//}

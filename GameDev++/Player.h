@@ -11,24 +11,18 @@ public:
 
 	sf::RectangleShape shape;
 	
-	Vec2 move_force = Vec2(0, 0);
+	Vec2 moveForce = Vec2(0, 0);
+	Vec2 brakeForceX = Vec2(5, 0);
+	Vec2 frictionForceX = Vec2(0.3, 0);
+	Vec2 brakeForceY = Vec2(0, 5);
+	Vec2 frictionForceY = Vec2(0, 0.3);
 
-	Vec2 up = Vec2(0,-1);
-	Vec2 down = Vec2(0, 1);
-	Vec2 right = Vec2(1, 0);
-	Vec2 left = Vec2(-1, 0);
-	float brake_force = 5;
-	float resistance = 0.3;
-
-	int x_pos;
-	int y_pos;
+	int xPos;
+	int yPos;
 	int width;
 	int height;
-	int x_speed = 5;
-	int y_speed = 5;
-	int mass;
-	int screen_size_x;
-	int screen_size_y;
+	int screenSizeX;
+	int screenSizeY;
 
 	Player();
 	Player(int w, int h);
@@ -36,6 +30,6 @@ public:
 	float Area();
 	void SetSize(int w, int h);
 	virtual void draw(sf::RenderWindow& window);
-	void SetPosition(int x_pos, int y_pos);
+	void SetPosition(int xPos, int yPos);
 };
 

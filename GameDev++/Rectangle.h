@@ -16,7 +16,7 @@ public:
 	float area();
 	void SetSize(int w, int h);
 	virtual void draw(sf::RenderWindow& window);
-	void SetPosition(int x_pos, int y_pos);
+	void SetPosition(int xPos, int yPos);
 
 };
 

@@ -9,17 +9,17 @@
 
 int main()
 {
-	int screen_size_x = 1000;
-	int screen_size_y = 800;
+	int screenSizeX = 1000;
+	int screenSizeY = 800;
 
-	sf::RenderWindow window(sf::VideoMode(screen_size_x, screen_size_y), "SFML works!");
+	sf::RenderWindow window(sf::VideoMode(screenSizeX, screenSizeY), "SFML works!");
 
 	window.setFramerateLimit(30);
 
 	Player player(50, 50);
-	player.screen_size_x = screen_size_x;
-	player.screen_size_y = screen_size_y;
-	player.SetPosition(screen_size_x/2 - player.width/2 , screen_size_y - 2*player.height);
+	player.screenSizeX = screenSizeX;
+	player.screenSizeY = screenSizeY;
+	player.SetPosition(screenSizeX/2 - player.width/2 , screenSizeY - 2*player.height);
 
 	while (window.isOpen())
 	{
