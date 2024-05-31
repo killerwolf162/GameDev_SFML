@@ -11,6 +11,7 @@ private:
 	int height;
 	
 public:
+	Rectangle();
 	Rectangle(int w, int h);
 	float area();
 	void SetSize(int w, int h);

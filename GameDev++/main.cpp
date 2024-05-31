@@ -1,29 +1,25 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
+#include <SFML/Window/Keyboard.hpp>
 #include "Shape.h"
 #include "Circle.h"
 #include "Rectangle.h"
 #include "Vec2.h"
+#include "Player.h"
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(1000, 800), "SFML works!");
-	Circle circle(100);
-	Rectangle rect(150, 150);
+	int screen_size_x = 1000;
+	int screen_size_y = 800;
 
-	Vec2 a(100, 100);
-	Vec2 b(-5, 5);
+	sf::RenderWindow window(sf::VideoMode(screen_size_x, screen_size_y), "SFML works!");
 
-	Vec2 c = Vec2::AddVec2(a, b);
+	window.setFramerateLimit(30);
 
-	std::cout << circle.area() << std::endl;
-	std::cout << rect.area() << std::endl;
-	std::cout << a.Vec2Lenght(a) << std::endl;
-	std::cout << "(" << c.x_pos << "," << c.y_pos << ")" << std::endl;
-
-	circle.setPosition(100, 200);
-
-
+	Player player(50, 50);
+	player.screen_size_x = screen_size_x;
+	player.screen_size_y = screen_size_y;
+	player.SetPosition(screen_size_x/2 - player.width/2 , screen_size_y - 2*player.height);
 
 	while (window.isOpen())
 	{
@@ -33,16 +29,10 @@ int main()
 			if (event.type == sf::Event::Closed)
 				window.close();
 		}
-		window.clear();
+		window.clear();		
 
-		rect.SetSize(10,10);
-
-		circle.draw(window);
-		rect.draw(window);
-
-		circle.SetPosition(40,600);
-		rect.SetPosition(500,300);
-
+		player.draw(window);
+		player.Move();
 		window.display();
 	}
 

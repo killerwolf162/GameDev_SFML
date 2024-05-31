@@ -7,6 +7,7 @@ class Vec2
 {
 public:
 
+	Vec2();
 	Vec2(float x, float y);
 
 	sf::Vector2f ConvertVector2();
@@ -23,7 +24,6 @@ public:
 
 	float x_pos;
 	float y_pos;
-
 
 private:
 
