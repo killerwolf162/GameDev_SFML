@@ -32,6 +32,7 @@ float Enemy::Area()
 void Enemy::Draw(sf::RenderWindow& window)
 {
 	shape.setRadius(radius);
+	shape.setFillColor(sf::Color::Red);
 	window.draw(shape);
 }
 

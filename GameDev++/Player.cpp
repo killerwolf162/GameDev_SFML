@@ -44,7 +44,7 @@ void Player::Move()
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 	{
 		moveForce = Vec2::AddVec2(moveForce, left);
-		
+
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) || sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 	{
@@ -78,13 +78,22 @@ void Player::Move()
 		}*/
 	}
 
+	std::cout << moveForce.x << std::endl;
 	if (moveForce.x > 0)
 	{
 		moveForce = Vec2::SubtractVec2(moveForce, frictionForceX);
+		if (Vec2::CompareVectorComponentX(moveForce, Vec2(40, 0)))
+		{
+			moveForce.x = 40;
+		}
 	}
 	if (moveForce.x < 0)
 	{
 		moveForce = Vec2::AddVec2(moveForce, frictionForceX);
+		if (Vec2::CompareVectorComponentX(Vec2(-40, 0), moveForce))
+		{
+			moveForce.x = -40;
+		}
 	}
 	/*if (moveForce.yPos > 0)
 	{
@@ -94,6 +103,7 @@ void Player::Move()
 	{
 		moveForce = Vec2::AddVec2(moveForce, frictionForceY);
 	}*/
+	std::cout << moveForce.x << std::endl;
 
 	if (xPos < 0 || xPos > screenSizeX - width)
 	{
@@ -104,7 +114,9 @@ void Player::Move()
 		moveForce.y = -moveForce.y;
 	}*/
 
-
+	
+	
+	
 	Vec2 currentPos = Vec2(xPos, yPos);
 	Vec2 moveTo = Vec2::AddVec2(currentPos, moveForce);
 

@@ -67,3 +67,15 @@ Vec2 Vec2::ScaleVec2(Vec2 vector2, int scalar)
 {
 	return Vec2(vector2.x*scalar, vector2.y*scalar);
 }
+
+bool Vec2::CompareVectorComponentX(Vec2 vector1, Vec2 vector2)
+{
+	if (vector1.x > vector2.x)
+	{
+		return true;
+	}
+	if (vector1.x < vector2.x)
+	{
+		return false;
+	}
+}
