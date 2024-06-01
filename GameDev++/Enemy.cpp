@@ -69,14 +69,14 @@ void Enemy::Move()
 	{
 		if (xPos < 0)
 		{
-			int addRandomvelocityX = std::rand() % 10 + 10;
-			moveForce.x /= 1.5;
+			int addRandomvelocityX = std::rand() % 10 + 15;
+			moveForce.x /= 2;
 			moveForce.x += -addRandomvelocityX;
 		}
 		if (xPos > screenSizeX - 2 * radius)
 		{
-			int addRandomvelocityX = std::rand() % 10 + 10;
-			moveForce.x /= 1.5;
+			int addRandomvelocityX = std::rand() % 10 + 15;
+			moveForce.x /= 2;
 			moveForce.x += addRandomvelocityX;
 		}
 		moveForce.x *= -1;

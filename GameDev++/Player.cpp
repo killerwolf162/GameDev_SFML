@@ -44,6 +44,7 @@ void Player::Move()
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 	{
 		moveForce = Vec2::AddVec2(moveForce, left);
+		
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) || sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 	{
@@ -102,6 +103,7 @@ void Player::Move()
 	{
 		moveForce.y = -moveForce.y;
 	}*/
+
 
 	Vec2 currentPos = Vec2(xPos, yPos);
 	Vec2 moveTo = Vec2::AddVec2(currentPos, moveForce);

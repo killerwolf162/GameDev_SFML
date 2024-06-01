@@ -58,3 +58,8 @@ Vec2 Vec2::UnitVector(Vec2 Vect2)
 
 	return Vec2(norm_x, norm_y);
 }
+
+Vec2 Vec2::ScaleVec2(Vec2 vector2, int scalar)
+{
+	return Vec2(vector2.x*scalar, vector2.y*scalar);
+}

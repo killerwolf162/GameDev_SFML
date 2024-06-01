@@ -22,6 +22,8 @@ public:
 
 	static Vec2 UnitVector(Vec2 Vec2);
 
+	static Vec2 ScaleVec2(Vec2 vector2, int scalar);
+
 	float x;
 	float y;
 

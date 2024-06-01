@@ -9,7 +9,7 @@ public:
 
 	sf::CircleShape shape;
 
-	Vec2 moveForce = Vec2(std::rand() % 5 + 25, std::rand() % 5 + 5);
+	Vec2 moveForce = Vec2(std::rand() % 5 + 20, std::rand() % 5 + 5);
 	Vec2 brakeForceX = Vec2(5, 0);
 	Vec2 frictionForceX = Vec2(0.2, 0);
 	Vec2 brakeForceY = Vec2(0, 5);
