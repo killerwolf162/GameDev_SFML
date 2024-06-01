@@ -1,6 +1,7 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include <SFML/Window/Keyboard.hpp>
+#include "GameManager.h"
 #include "Shape.h"
 #include "Circle.h"
 #include "Rectangle.h"
@@ -8,6 +9,9 @@
 #include "Player.h"
 #include "Enemy.h"
 #include "MathUtil.h"
+
+int GameManager::health = 5;
+int GameManager::score = 0;
 
 int main()
 {
@@ -54,14 +58,18 @@ int main()
 		{
 			for (it = enemies.begin(); it != enemies.end(); it++)
 			{
-				if (it->isOffScreen() == true)
-				{
-					it = enemies.erase(it);
-				}
+
 				if (MathUtil::checkForCollision(Vec2(player.xPos, player.yPos), Vec2(it->xPos, it->yPos), player.width / 2, it->radius) == true)
 				{
-					std::cout << "hit" << std::endl;
+					GameManager::decreaseHealth();
 					it = enemies.erase(it);
+					std::cout << "Health:" << GameManager::health << std::endl;
+				}
+				if (it->isOffScreen() == true)
+				{
+					GameManager::addScore();
+					it = enemies.erase(it);
+					std::cout << "Score:" << GameManager::score << std::endl;
 				}
 				else
 				{
@@ -69,6 +77,11 @@ int main()
 					it->Move();
 				}
 			}
+		}
+
+		if (GameManager::health <= 0)
+		{
+			//window.close();
 		}
 
 		if (enemies.size() < 5)
@@ -80,8 +93,6 @@ int main()
 
 			enemies.push_back(enemy);
 		}
-
-		std::cout << enemies.size() << std::endl;
 
 		player.Draw(window);
 		player.Move();
