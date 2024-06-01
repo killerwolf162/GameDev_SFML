@@ -23,7 +23,7 @@ void Player::SetSize(int w, int h)
 	height = h;
 }
 
-void Player::draw(sf::RenderWindow& window)
+void Player::Draw(sf::RenderWindow& window)
 {
 	Vec2 vector = Vec2(width, height);
 	shape.setSize(vector.ConvertVector2());
@@ -96,7 +96,7 @@ void Player::Move()
 
 	if (xPos < 0 || xPos > screenSizeX - width)
 	{
-		moveForce.x = -moveForce.x;
+		moveForce.x *= -1;
 	}
 	/*if (yPos < 0 || yPos > screenSizeY - height)
 	{

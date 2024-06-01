@@ -12,8 +12,8 @@ private:
 public:
 	Shape();
 
-	Vec2 up = Vec2(0, 1);
-	Vec2 down = Vec2(0, -1);
+	Vec2 up = Vec2(0, -1);
+	Vec2 down = Vec2(0, 1);
 	Vec2 right = Vec2(1, 0);
 	Vec2 left = Vec2(-1, 0);
 

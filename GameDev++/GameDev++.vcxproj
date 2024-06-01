@@ -145,6 +145,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="MathUtil.cpp" />
@@ -155,6 +156,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Circle.h" />
+    <ClInclude Include="Enemy.h" />
     <ClInclude Include="MathUtil.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Rectangle.h" />

@@ -3,6 +3,10 @@
 #include "Circle.h"
 
 
+Circle::Circle()
+{
+}
+
 Circle::Circle(int radius)
 {
 	this-> radius = radius;

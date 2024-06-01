@@ -29,7 +29,7 @@ public:
 	void Move();
 	float Area();
 	void SetSize(int w, int h);
-	virtual void draw(sf::RenderWindow& window);
+	virtual void Draw(sf::RenderWindow& window);
 	void SetPosition(int xPos, int yPos);
 };
 

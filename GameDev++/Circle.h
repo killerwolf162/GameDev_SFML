@@ -9,6 +9,7 @@ private:
 	sf::CircleShape shape;
 
 public:
+	Circle();
 	Circle(int radius);
 	float area();
 	void draw(sf::RenderWindow& window);

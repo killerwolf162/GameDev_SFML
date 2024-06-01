@@ -6,6 +6,7 @@
 #include "Rectangle.h"
 #include "Vec2.h"
 #include "Player.h"
+#include "Enemy.h"
 
 int main()
 {
@@ -17,9 +18,23 @@ int main()
 	window.setFramerateLimit(30);
 
 	Player player(50, 50);
+
+	std::vector<Enemy> enemies;
+	auto it = enemies.begin();
+
+	for (int i = 0; i < 10; i++)
+	{
+		Enemy enemy(25, 30);
+		enemy.screenSizeX = screenSizeX;
+		enemy.screenSizeY = screenSizeY;
+		enemy.SetPosition(std::rand() % 1000, -i*100);
+
+		enemies.push_back(enemy);
+	}
 	player.screenSizeX = screenSizeX;
 	player.screenSizeY = screenSizeY;
 	player.SetPosition(screenSizeX/2 - player.width/2 , screenSizeY - 2*player.height);
+	
 
 	while (window.isOpen())
 	{
@@ -31,7 +46,37 @@ int main()
 		}
 		window.clear();		
 
-		player.draw(window);
+
+		if (enemies.size() > 1)
+		{
+			for (it = enemies.begin(); it != enemies.end(); it++)
+			{
+				if (it->isOffScreen() == true)
+				{
+					it = enemies.erase(it);
+				}
+				else
+				{
+					it->Draw(window);
+					it->Move();
+				}
+			}
+		}
+
+		if (enemies.size() < 5)
+		{
+			Enemy enemy(25, 30);
+			enemy.screenSizeX = screenSizeX;
+			enemy.screenSizeY = screenSizeY;
+			enemy.SetPosition(std::rand() % 1000, -100);
+
+			enemies.push_back(enemy);
+		}
+		
+
+		std::cout << enemies.size() << std::endl;
+
+		player.Draw(window);
 		player.Move();
 		window.display();
 	}
