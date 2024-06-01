@@ -1,15 +1,12 @@
 #include "MathUtil.h"
 
-MathUtil::MathUtil()
+bool MathUtil::checkForCollision(Vec2 vector1, Vec2 vector2, int radius1, int radius2)
 {
-
-}
-
-float MathUtil::Sq(float a, float b)
-{
-	return a * a;
-}
-float MathUtil::Sqrt(int a)
-{
-	return 0.5 * a;
+	Vec2 distanceVector = Vec2::SubtractVec2(vector1, vector2);
+	if (Vec2::Vec2Lenght(distanceVector) <= radius1 + radius2)
+	{
+		return true;
+	}
+	else
+		return false;
 }

@@ -7,6 +7,7 @@
 #include "Vec2.h"
 #include "Player.h"
 #include "Enemy.h"
+#include "MathUtil.h"
 
 int main()
 {
@@ -15,9 +16,11 @@ int main()
 
 	sf::RenderWindow window(sf::VideoMode(screenSizeX, screenSizeY), "SFML works!");
 
-	window.setFramerateLimit(30);
+	window.setFramerateLimit(10);
 
 	Player player(50, 50);
+	Enemy enemy1(100, 30);
+	Enemy enemy2(100, 30);
 
 	std::vector<Enemy> enemies;
 	auto it = enemies.begin();
@@ -55,6 +58,11 @@ int main()
 				{
 					it = enemies.erase(it);
 				}
+				if (MathUtil::checkForCollision(Vec2(player.xPos, player.yPos), Vec2(it->xPos, it->yPos), player.width / 2, it->radius) == true)
+				{
+					std::cout << "hit" << std::endl;
+					it = enemies.erase(it);
+				}
 				else
 				{
 					it->Draw(window);
@@ -72,12 +80,12 @@ int main()
 
 			enemies.push_back(enemy);
 		}
-		
 
 		std::cout << enemies.size() << std::endl;
 
 		player.Draw(window);
 		player.Move();
+
 		window.display();
 	}
 

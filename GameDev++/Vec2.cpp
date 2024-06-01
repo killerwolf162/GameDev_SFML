@@ -45,6 +45,10 @@ Vec2 Vec2::SubtractVec2(Vec2 vector_1, Vec2 vector_2)
 float Vec2::Vec2Lenght(Vec2 Vec2)
 {
 	float length = sqrt(pow(Vec2.x, 2) + pow(Vec2.y, 2));
+	if (length < 0)
+	{
+		length *= -1;
+	}
 
 	return length;
 }
