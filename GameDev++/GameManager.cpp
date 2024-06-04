@@ -14,8 +14,3 @@ void GameManager::decreaseHealth()
 {
 	health--;
 }
-
-void GameManager::gameOver()
-{
-
-}

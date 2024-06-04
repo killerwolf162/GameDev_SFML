@@ -41,24 +41,24 @@ void Player::SetPosition(int xPos, int yPos)
 
 void Player::Move()
 {
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) // lets player move left
 	{
 		moveForce = Vec2::AddVec2(moveForce, left);
 
 	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) || sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) || sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) // lets player move right
 	{
 		moveForce = Vec2::AddVec2(moveForce, right);
 	}
-	/*if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+	/*if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) lets player move up, not needed for game
 	{
 		moveForce = Vec2::AddVec2(moveForce, up);
 	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down))lets player move down, not needed for game
 	{
 		moveForce = Vec2::AddVec2(moveForce, down);
 	}*/
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) // applies a brake force when spacebar is pressed to slowdown faster
 	{
 		if (moveForce.x > 0)
 		{
@@ -78,11 +78,10 @@ void Player::Move()
 		}*/
 	}
 
-	std::cout << moveForce.x << std::endl;
 	if (moveForce.x > 0)
 	{
-		moveForce = Vec2::SubtractVec2(moveForce, frictionForceX);
-		if (Vec2::CompareVectorComponentX(moveForce, Vec2(40, 0)))
+		moveForce = Vec2::SubtractVec2(moveForce, frictionForceX); //adds friction force to player when it is moving
+		if (Vec2::CompareVectorComponentX(moveForce, Vec2(40, 0))) // limmits the movement speed of the player to prevent clipping
 		{
 			moveForce.x = 40;
 		}
@@ -95,7 +94,7 @@ void Player::Move()
 			moveForce.x = -40;
 		}
 	}
-	/*if (moveForce.yPos > 0)
+	/*if (moveForce.yPos > 0) movement for Y position, not needed for the game
 	{
 		moveForce = Vec2::SubtractVec2(moveForce, frictionForceY);
 	}
@@ -103,13 +102,12 @@ void Player::Move()
 	{
 		moveForce = Vec2::AddVec2(moveForce, frictionForceY);
 	}*/
-	std::cout << moveForce.x << std::endl;
 
 	if (xPos < 0 || xPos > screenSizeX - width)
 	{
 		moveForce.x *= -1;
 	}
-	/*if (yPos < 0 || yPos > screenSizeY - height)
+	/*if (yPos < 0 || yPos > screenSizeY - height) bounce player on Y axis, not needed for game
 	{
 		moveForce.y = -moveForce.y;
 	}*/
@@ -117,10 +115,10 @@ void Player::Move()
 	
 	
 	
-	Vec2 currentPos = Vec2(xPos, yPos);
-	Vec2 moveTo = Vec2::AddVec2(currentPos, moveForce);
+	Vec2 currentPos = Vec2(xPos, yPos); //current position vector
+	Vec2 moveTo = Vec2::AddVec2(currentPos, moveForce); // adds current position vector and movement vector to calculate new position
 
-	this->xPos = moveTo.x;
+	this->xPos = moveTo.x; //updates x and y position
 	this->yPos = moveTo.y;
 
 	shape.setPosition(moveTo.ConvertVector2());

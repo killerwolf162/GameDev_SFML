@@ -16,8 +16,8 @@ int GameManager::score = 0;
 
 int main()
 {
-	int screenSizeX = 1000;
-	int screenSizeY = 800;
+	int screenSizeX = 1200;
+	int screenSizeY = 675;
 
 	sf::Text scoreText;
 	sf::Text healthText;
@@ -43,7 +43,7 @@ int main()
 	endScoreText.setFillColor(sf::Color::Cyan);
 	endScoreText.setPosition(screenSizeX/2 -250, screenSizeY/2-100);
 
-	sf::RenderWindow gameWindow(sf::VideoMode(screenSizeX, screenSizeY), "DodgeBall!");
+	sf::RenderWindow gameWindow(sf::VideoMode(screenSizeX, screenSizeY), "Dodge Ball");
 
 	gameWindow.setFramerateLimit(30);
 
@@ -71,6 +71,13 @@ int main()
 	while (gameWindow.isOpen())
 	{
 		sf::Event event;
+
+		while (gameWindow.pollEvent(event))
+		{
+			if (event.type == sf::Event::Closed)
+				gameWindow.close();
+		}
+
 		while (GameManager::health <= 0)
 		{
 			while (gameWindow.pollEvent(event))
@@ -80,16 +87,11 @@ int main()
 			}
 			gameWindow.clear();
 			auto endScore = std::string("Your final score: ") + std::to_string(GameManager::score);
-			endScoreText.setString(endScore);		
+			endScoreText.setString(endScore);
 			gameWindow.draw(endScoreText);
 			gameWindow.display();
 		}
 
-		while (gameWindow.pollEvent(event))
-		{
-			if (event.type == sf::Event::Closed)
-				gameWindow.close();
-		}
 		gameWindow.clear();
 
 
@@ -104,14 +106,11 @@ int main()
 			{
 				GameManager::decreaseHealth();
 				it = enemies.erase(it);
-				std::cout << "Health:" << GameManager::health << std::endl;
 			}
 			if (it->isOffScreen() == true)
 			{
 				GameManager::addScore();
 				it = enemies.erase(it);
-				std::cout << "Score:" << GameManager::score << std::endl;
-
 			}
 			else
 			{
@@ -129,9 +128,6 @@ int main()
 
 			enemies.push_back(enemy);
 		}
-
-		
-
 		player.Draw(gameWindow);
 		player.Move();
 
@@ -139,7 +135,6 @@ int main()
 		healthText.setString(health);
 		gameWindow.draw(scoreText);
 		gameWindow.draw(healthText);
-
 
 		gameWindow.display();
 	}

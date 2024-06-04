@@ -9,7 +9,6 @@ public:
 	static void addScore();
 	static void addHealth();
 	static void decreaseHealth();
-	static void gameOver();
 };
 
 
