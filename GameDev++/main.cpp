@@ -24,7 +24,7 @@ int main()
 	sf::Text endScoreText;
 	sf::Font font;
 
-	if (!font.loadFromFile("RetroGaming.ttf"));
+	if (!font.loadFromFile("RetroGaming.ttf"))
 	{
 
 	}

@@ -1,0 +1,5 @@
+# CMake generation dependency list for this directory.
+C:/Users/tjong/Desktop/Cmake_SFML/SFML-2.6.x/cmake/CompilerWarnings.cmake
+C:/Users/tjong/Desktop/Cmake_SFML/SFML-2.6.x/cmake/Macros.cmake
+C:/Users/tjong/Desktop/Cmake_SFML/SFML-2.6.x/src/SFML/CMakeLists.txt
+D:/Cmake/share/cmake-3.30/Modules/CMakeParseArguments.cmake
