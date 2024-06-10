@@ -1,4 +1,4 @@
-This project is dependend on DLL's provided by Microsoft Visual Studio, without a version of Visual Studio installed(I use VS 2019) the project will NOT run!!
+Project dependend on all DLL provided in GameExecutableFolder
 
 This repository contains the official SFML 2.6.X branch code for ease of use, official github file location: https://github.com/SFML/SFML/tree/2.6.x
 
