@@ -13,9 +13,9 @@ private:
 public:
 	Rectangle();
 	Rectangle(int w, int h);
-	float area();
+	float Area();
 	void SetSize(int w, int h);
-	virtual void draw(sf::RenderWindow& window);
+	virtual void Draw(sf::RenderWindow& window);
 	void SetPosition(int xPos, int yPos);
 
 };

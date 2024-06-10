@@ -17,19 +17,16 @@ public:
 
 	float radius;
 	int pointCount;
-	int xPos;
-	int yPos;
-	int screenSizeX;
-	int screenSizeY;
 	int movementSpeedX = 0;
 	int movementSpeedY = 0;
 
-	bool isOffScreen();
+	
 
 
 	Enemy();
 	Enemy(int radius, int pointCount);
 	float Area();
+	bool IsOffScreen();
 	void Draw(sf::RenderWindow& window);
 	void SetRadius(int r);
 	void SetPointCount(int pointCount);

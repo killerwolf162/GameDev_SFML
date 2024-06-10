@@ -12,12 +12,12 @@ Circle::Circle(int radius)
 	this-> radius = radius;
 }
 
-float Circle::area()
+float Circle::Area()
 {
 	return M_PI * radius * radius;
 }
 
-void Circle::draw(sf::RenderWindow& window)
+void Circle::Draw(sf::RenderWindow& window)
 {
 	shape.setRadius(radius);
 	window.draw(shape);

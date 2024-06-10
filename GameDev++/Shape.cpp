@@ -9,11 +9,11 @@ void Shape::SetPosition(sf::Vector2f position)
 {	
 }
 
-float Shape::area()
+float Shape::Area()
 {
 	return 0;
 }
 
-void Shape::draw(sf::RenderWindow& window)
+void Shape::Draw(sf::RenderWindow& window)
 {
 }

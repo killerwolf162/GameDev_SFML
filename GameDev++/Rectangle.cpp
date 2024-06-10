@@ -17,12 +17,12 @@ void Rectangle::SetSize(int w, int h)
 	height = h;
 }
 
-float Rectangle::area()
+float Rectangle::Area()
 {
 	return width * height;
 }
 
-void Rectangle::draw(sf::RenderWindow& window)
+void Rectangle::Draw(sf::RenderWindow& window)
 {
 	Vec2 vector = Vec2(width,height);
 	shape.setSize(vector.ConvertVector2());

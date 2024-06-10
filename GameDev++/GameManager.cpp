@@ -1,16 +1,16 @@
 #include "GameManager.h"
 
-void GameManager::addScore()
+void GameManager::AddScore()
 {
 	score++;
 }
 
-void GameManager::addHealth()
+void GameManager::AddHealth()
 {
 	health++;
 }
 
-void GameManager::decreaseHealth()
+void GameManager::DecreaseHealth()
 {
 	health--;
 }

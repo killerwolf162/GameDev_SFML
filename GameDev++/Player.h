@@ -17,12 +17,8 @@ public:
 	Vec2 brakeForceY = Vec2(0, 5);
 	Vec2 frictionForceY = Vec2(0, 0.3);
 
-	int xPos;
-	int yPos;
 	int width;
 	int height;
-	int screenSizeX;
-	int screenSizeY;
 
 	Player();
 	Player(int w, int h);

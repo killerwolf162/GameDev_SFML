@@ -17,9 +17,15 @@ public:
 	Vec2 right = Vec2(2, 0);
 	Vec2 left = Vec2(-2, 0);
 
+	int screenSizeX;
+	int screenSizeY;
+	int xPos;
+	int yPos;
+
+
 	virtual void SetPosition(sf::Vector2f position);
-	virtual float area();	
-    virtual void draw(sf::RenderWindow& window);
+	virtual float Area();	
+    virtual void Draw(sf::RenderWindow& window);
 	
 };
 

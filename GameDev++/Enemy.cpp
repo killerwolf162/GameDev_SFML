@@ -13,7 +13,7 @@ Enemy::Enemy(int radius, int pointCount)
 	this->pointCount = pointCount;
 }
 
-bool Enemy::isOffScreen()
+bool Enemy::IsOffScreen()
 {
 	if (yPos > screenSizeY + 20)
 	{
@@ -57,7 +57,7 @@ void Enemy::SetPosition(int xPos, int yPos)
 void Enemy::Move()
 {
 	
-	if (moveForce.x > 0)
+	if (moveForce.x > 0) // only apply horizontal friction when enemy is moving horizontaly
 	{
 		moveForce = Vec2::SubtractVec2(moveForce, frictionForceX);
 	}
@@ -66,19 +66,19 @@ void Enemy::Move()
 		moveForce = Vec2::AddVec2(moveForce, frictionForceX);
 	}
 	
-	if (xPos < 0 || xPos > screenSizeX - 2*radius)
+	if (xPos < 0 || xPos > screenSizeX - 2*radius) // gives force impulse when enemy hits border
 	{
 		if (xPos < 0)
 		{
-			int addRandomvelocityX = std::rand() % 10 + 15;
+			int addRandomVelocityX = std::rand() % 10 + 15;
 			moveForce.x /= 2;
-			moveForce.x += -addRandomvelocityX;
+			moveForce.x += -addRandomVelocityX;
 		}
 		if (xPos > screenSizeX - 2 * radius)
 		{
-			int addRandomvelocityX = std::rand() % 10 + 15;
+			int addRandomVelocityX = std::rand() % 10 + 15;
 			moveForce.x /= 2;
-			moveForce.x += addRandomvelocityX;
+			moveForce.x += addRandomVelocityX;
 		}
 		moveForce.x *= -1;
 	}

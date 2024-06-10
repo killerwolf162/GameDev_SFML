@@ -11,7 +11,7 @@ private:
 public:
 	Circle();
 	Circle(int radius);
-	float area();
-	void draw(sf::RenderWindow& window);
+	float Area();
+	void Draw(sf::RenderWindow& window);
 	void SetPosition(int xPos, int yPos);
 };

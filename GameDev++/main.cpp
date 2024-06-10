@@ -19,7 +19,7 @@ int main()
 	int screenSizeX = 1200;
 	int screenSizeY = 675;
 
-	sf::Text scoreText;
+	sf::Text scoreText; // chose to setup text elements in main function instead of different class because lazy
 	sf::Text healthText;
 	sf::Text endScoreText;
 	sf::Font font;
@@ -48,8 +48,6 @@ int main()
 	gameWindow.setFramerateLimit(30);
 
 	Player player(50, 50);
-	Enemy enemy1(100, 30);
-	Enemy enemy2(100, 30);
 
 	std::vector<Enemy> enemies;
 	auto it = enemies.begin();
@@ -78,7 +76,7 @@ int main()
 				gameWindow.close();
 		}
 
-		while (GameManager::health <= 0)
+		while (GameManager::health <= 0) // if health = 0, gameover
 		{
 			while (gameWindow.pollEvent(event))
 			{
@@ -99,17 +97,17 @@ int main()
 		auto health = std::string("Health: ") + std::to_string(GameManager::health);
 
 
-		for (it = enemies.begin(); it != enemies.end(); it++)
+		for (it = enemies.begin(); it != enemies.end(); it++) // loops through collision detection and enemy movement
 		{
 
-			if (MathUtil::checkForCollision(Vec2(player.xPos, player.yPos), Vec2(it->xPos, it->yPos), player.width / 2, it->radius) == true)
+			if (MathUtil::CheckForCollision(Vec2(player.xPos, player.yPos), Vec2(it->xPos, it->yPos), player.width / 2, it->radius) == true)
 			{
-				GameManager::decreaseHealth();
+				GameManager::DecreaseHealth();
 				it = enemies.erase(it);
 			}
-			if (it->isOffScreen() == true)
+			if (it->IsOffScreen() == true)
 			{
-				GameManager::addScore();
+				GameManager::AddScore();
 				it = enemies.erase(it);
 			}
 			else
@@ -119,7 +117,7 @@ int main()
 			}
 		}
 
-		if (enemies.size() < 5)
+		if (enemies.size() < 5) // makes sure atleast 5 enemies in game
 		{
 			Enemy enemy(25, 30);
 			enemy.screenSizeX = screenSizeX;
